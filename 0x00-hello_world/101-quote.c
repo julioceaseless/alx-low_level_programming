@@ -6,7 +6,7 @@
  * Return: Always returns 1 (Success)
  *
  */
-#define MESSAGE "and that piece of art is useful\"- Dora Korpar, 2015-10-19\n"
+#define MESSAGE "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n"
 int main(void)
 {
 	char msg[] = MESSAGE;
