@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <unistd.h>
+#define MESSAGE "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n"
 /*
  * main - Entry point
  *
- * Return: Always returns 1 (Success)
+ * This function is the entry point of the program.
+ * It prints a specific message to the standard error
+ * and returns an exit status of 1.
  *
- */
-#define MESSAGE "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n"
+ * Return: Always 1 (Exit status)
+*/
 int main(void)
 {
 	char msg[] = MESSAGE;
