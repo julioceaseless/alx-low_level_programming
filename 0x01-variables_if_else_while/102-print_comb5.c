@@ -2,36 +2,43 @@
 /**
  * main - Entry point
  *
- * Description: print 0 to 99 unique numbers
+ * Description: Prints 4 digits
  *
- * Return: Always return 0 (success)
+ * Return: Always 0 (success)
+ *
  */
 int main(void)
 {
-	int i;
-	int j;
+int i;
+int j;
+int k;
+int l;
 
-	for (i = 0; i <= 99; i++)
+for (i = 0; i <= 9; i++)
+{
+	for (j = 0; j <= 9; j++)
 	{
-		for (j = i + 1; j <= 99; j++)
+		for (k = 0; k <= 9; k++)
 		{
-			if (i <= j)
+			for (l = 0; l <= 9; l++)
 			{
-				putchar(i / 10 + '0');
-				putchar(i % 10 + '0');
-				putchar(' ');
-				putchar(j / 10 + '0');
-				putchar(j % 10 + '0');
-				if (i != 99 || j != 99)
+				if ((k * 10 + l) > (i * 10 + j))
 				{
-					putchar(',');
-					putchar(' ');
+					putchar (i + '0');
+					putchar (j + '0');
+					putchar (' ');
+					putchar (k + '0');
+					putchar (l + '0');
+					if (i != 9 || j != 8 || k != 9 || l != 9)
+					{
+						putchar (',');
+						putchar (' ');
+					}
 				}
 			}
 		}
 	}
-
-	putchar('\n');
-
-	return (0);
+}
+putchar ('\n');
+return (0);
 }
