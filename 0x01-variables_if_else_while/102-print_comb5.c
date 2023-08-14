@@ -22,6 +22,7 @@ for (i = 0; i <= 9; i++)
 		{
 			for (l = 0; l <= 9; l++)
 			{
+				/* prints unique numbers */
 				if ((k * 10 + l) > (i * 10 + j))
 				{
 					putchar (i + '0');
