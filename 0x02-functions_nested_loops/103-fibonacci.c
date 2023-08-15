@@ -7,10 +7,9 @@
   */
 int main(void)
 {
-	long num1 = 1;
-	long num2 = 2;
-
-	printf("%ld", num2);
+	long num1 = 0;
+	long num2 = 1;
+	long sum;
 
 	while (num2 < 4000000)
 	{
@@ -18,10 +17,10 @@ int main(void)
 		num1 = num2 - num1;
 		if (num2 % 2 == 0)
 		{
-			printf(", %ld", num2);
+			sum += num2;
 		}
 	}
-	printf("\n");
+	printf("%ld\n", sum);
 	return (0);
 }
 
