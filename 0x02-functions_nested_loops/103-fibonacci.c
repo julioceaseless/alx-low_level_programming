@@ -9,7 +9,6 @@ int main(void)
 {
 	long num1 = 1;
 	long num2 = 2;
-	int i = 0;
 
 	printf("%ld", num2);
 
