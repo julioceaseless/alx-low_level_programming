@@ -17,27 +17,22 @@ void times_table(void)
 		{
 			if (i * j > 9)
 			{
+				_putchar(',');
+				_putchar(' ');
 				_putchar('0' + (i * j) / 10);
 				_putchar('0' + (i * j) % 10);
 
 			}
 			else
 			{
+				if (j != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+				}
 				_putchar('0' + i * j);
 			}
-
-			if (j != 9 && i * j > 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			else if (j != 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-			}
-
 		}
 		_putchar('\n');
 	}
