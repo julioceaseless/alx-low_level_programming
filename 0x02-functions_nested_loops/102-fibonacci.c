@@ -14,13 +14,13 @@ int main(void)
 	printf("%ld, ", num1);
 	printf("%ld", num2);
 
-	while (i < 49)
+	while (i < 48)
 	{
 		num2 += num1;
 		num1 = num2 - num1;
 
 		printf(", %ld", num2);
-		++i;
+		i++;
 	}
 	printf("\n");
 	return (0);
