@@ -1,45 +1,44 @@
 #include <stdio.h>
 /**
-  * main - Prints the first 50 fibonacci numbers
+  * main - Prints the first 98 fibonacci numbers
   * Return: Always 0!
   */
 int main(void)
 {
 	unsigned long num1 = 1;
 	unsigned long num2 = 2;
-	unsigned long sum, fibo1_cut1, fibo1_cut2, fibo2_cut1, fibo2_cut2;
-	unsigned long cut1, cut2;
+	unsigned long num1_part1, num1_part2, num2_part1, num2_part2;
+	unsigned long sum_part1, sum_part2;
+	unsigned long div =  10000000000;
 	int i;
 
 	printf("%lu, %lu", num1, num2);
-	for (i = 3; i < 93; i++)
+	for (i = 3; i < 92; i++)
 	{
-		sum = num1 + num2;
-		printf(", %lu", sum);
-
-		num1 = num2;
-		num2 = sum;
+		printf(", %lu", num2);
+		num2 = num1 + num2;
+		num1 = num2 - num1;
 	}
-	fibo1_cut1 = num1 / 10000000000;
-	fibo2_cut1 = num2 / 10000000000;
-	fibo1_cut2 = num1 % 10000000000;
-	fibo2_cut2 = num2 % 10000000000;
+	/** num1 **/
+	num1_part1 = num1 / div;
+	num1_part2 = num1 % div;
 
-	for (i = 93; i < 99; i++)
+	/**  num2 **/
+	num2_part1 = num2 / div;
+	num2_part2 = num2 % div;
+
+	for (i = 92; i < 99; i++)
 	{
-		cut1 = fibo1_cut1 + fibo2_cut1;
-		cut2 = fibo1_cut2 + fibo2_cut2;
-		if ((fibo1_cut1 + fibo2_cut2) >= 10000000000)
-		{
-			cut1 += 1;
-			cut2 = cut2 % 10000000000;
-		}
-		printf(", %lu%lu", cut1, cut2);
+		sum_part2 = (num1_part2 + num2_part2) % div;
+		sum_part1 = num1_part1 + num2_part1;
+		sum_part1 += ((num1_part2 + num2_part2) / div);
 
-		fibo1_cut1 = fibo2_cut1;
-		fibo1_cut2 = fibo2_cut2;
-		fibo2_cut1 = cut1;
-		fibo2_cut2 = cut2;
+		printf(", %lu%lu", sum_part1, sum_part2);
+
+		num2_part1 += num1_part1;
+		num2_part2 += num1_part2;
+		num1_part1 = num2_part1 - num1_part1;
+		num1_part2 = num2_part2 - num1_part2;
 	}
 	printf("\n");
 	return (0);
