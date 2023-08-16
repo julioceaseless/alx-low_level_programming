@@ -26,7 +26,7 @@ int main(void)
 	/**  num2 **/
 	num2_part1 = num2 / div;
 	num2_part2 = num2 % div;
-	
+
 	i = 93;
 	while (i < 99)
 	{
