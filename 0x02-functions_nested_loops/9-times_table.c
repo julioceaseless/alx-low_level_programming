@@ -27,13 +27,13 @@ void times_table(void)
 			{
 				if (j != 0)
 				{
-					_putchar(',');
+					_putchar('n');
 					_putchar(' ');
 					_putchar(' ');
 				}
 				_putchar('0' + i * j);
 			}
 		}
-		_putchar('\n');
+	_putchar('\n');
 	}
 }
