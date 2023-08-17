@@ -2,13 +2,14 @@
 
 /**
  * print_triangle - prints triangle using blocks of #
- * @n: number of times \ is printed
+ * @size: size of triangle
  * Return: nothing!
  */
 void print_triangle(int size)
 {
 	int i;
 	int s;
+	int h;
 
 	if (size <= 0)
 	{
@@ -16,13 +17,16 @@ void print_triangle(int size)
 	}
 	else
 	{
-		for (i = 1; i <= size; i++)
+		for (i = size; i >= 0; i--)
 		{
-			for (s = 1; i <= size; s++)
+			for (s = size - i; s > 0; s--)
 			{
 				_putchar(35);
 			}
-			_putchar(' ');
+			for (h = 0; h <= i; h++)
+			{
+				_putchar(' ');
+			}
 			_putchar('\n');
 		}
 
