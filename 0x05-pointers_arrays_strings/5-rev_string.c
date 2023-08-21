@@ -6,11 +6,20 @@
 
 void rev_string(char *s)
 {
-	int n;
+	int str_len = strlen(s);
+	int start = 0;
+	int end = str_len - 1;
 
-	for (n = strlen(s); n >= 0; n--)
+	char temp;
+
+	while (start < end)
 	{
-		printf("%c", s[n]);
+		temp = s[start];
+		s[start] = s[end];
+		s[end] = temp;
+
+		start++;
+		end--;
 
 	}
 }
