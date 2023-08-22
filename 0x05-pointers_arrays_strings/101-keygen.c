@@ -11,8 +11,8 @@ int main(void)
 	const int checksum = 2772;
 	int pass[100];
 	int i;
-	int sum;
-	int n;
+	int sum = 0;
+	int n = 0;
 
 	/* seed the random number generated to current time */
 	srand(time(NULL));
@@ -25,7 +25,7 @@ int main(void)
 		sum += pass[i];
 
 		/* print ASCII equivalent of each num */
-		putchar(pass[i] + '0');
+		putchar(pass[i] + 48);
 
 	}
 
@@ -33,7 +33,7 @@ int main(void)
 	{
 		n = checksum - sum;
 		sum += n;
-		putchar(n + '0');
+		putchar(n + 48);
 	}
 
 	return (0);
