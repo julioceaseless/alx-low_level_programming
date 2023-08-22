@@ -11,8 +11,8 @@ int main(void)
 	const int checksum = 2772;
 	int pass[100];
 	int i;
-	int sum = 0;
-	int n = 0;
+	int sum;
+	int n;
 
 	/* seed the random number generated to current time */
 	srand(time(NULL));
