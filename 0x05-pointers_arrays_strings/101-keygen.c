@@ -25,7 +25,7 @@ int main(void)
 		sum += pass[i];
 
 		/* print ASCII equivalent of each num */
-		putchar(pass[i] + 48);
+		putchar(pass[i] + '0');
 
 	}
 
@@ -33,7 +33,7 @@ int main(void)
 	{
 		n = checksum - sum;
 		sum += n;
-		putchar(n + 48);
+		putchar(n + '0');
 	}
 
 	return (0);
