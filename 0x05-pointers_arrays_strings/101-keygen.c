@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - main entry
+ * main - main entry, generates pass, adds the value
+ * of each character until it is equal to 2772 
+ * (from 101-crackme object file)
  *
  * Return: 0 for success
  */
@@ -12,7 +14,7 @@ int main(void)
 	int pass[100];
 	int i;
 	int sum = 0;
-	int n = 0;
+	int last_char = 0;
 
 	/* seed the random number generated to current time */
 	srand(time(NULL));
@@ -20,20 +22,21 @@ int main(void)
 	/* generated 100 random numbers between 0 - 77 */
 	for (i = 0; i < 100; i++)
 	{
-		pass[i] = (rand() % 78);
+		pass[i]= (rand() % 78);
 
-		sum += pass[i];
+		sum += pass[i] + 33;
 
 		/* print ASCII equivalent of each num */
-		putchar(pass[i] + 48);
+		putchar(pass[i] + 33);
+		
+		if ((checksum - sum - 33) < 78)
+		{
+			last_char = checksum - sum - 33;
+			sum += last_char;
 
-	}
-
-	if ((checksum - sum) < 78)
-	{
-		n = checksum - sum;
-		sum += n;
-		putchar(n + 48);
+			putchar(last_char + 33);
+			break;
+		}
 	}
 
 	return (0);
