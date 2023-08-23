@@ -1,37 +1,33 @@
 #include "main.h"
 /**
  * leet - encodes string into 1337
- * @input: input string
+ * @str: input string
  * Return: pointer to encoded string
  */
 
-char *leet(char *input)
+char *leet(char *str)
 {
-	int i = 0;
-	char *encoded = (char *)malloc(strlen(input) + 1);
-	char mapping[128] = {0};
+	int i, j, size;
 
-	mapping['a'] = mapping['A'] = '4';
-	mapping['e'] = mapping['E'] = '3';
-	mapping['o'] = mapping['O'] = '0';
-	mapping['t'] = mapping['T'] = '7';
-	mapping['l'] = mapping['L'] = '1';
+	char target1[] = {'a', 'e', 'o', 't', 'l'};
+	char target2[] = {'A', 'E', 'O', 'T', 'L'};
+	char replace[] = {'4', '3', '0', '7', '1'};
 
-	while (input[i] != '\0')
+	size = sizeof(target1) / sizeof(target1[0]);
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (mapping[(unsigned char)input[i]] != 0)
+		for (j = 0; j < size; j++)
 		{
-			encoded[i] = mapping[(unsigned char)input[i]];
-		}
-		else
-		{
-			encoded[i] = input[i];
+			if (str[i] == target1[j] ||
+				str[i] == target2[j])
+			{
+				str[i] = replace[j];
+			}
+
 		}
 
-		i++;
 	}
 
-	encoded[i] = '\0';
-
-	return (encoded);
+	return (str);
 }
