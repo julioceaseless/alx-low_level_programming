@@ -19,6 +19,8 @@ char *rot13(char *str)
 			{
 				str[i] = replace_char[j];
 
+				break;
+
 			}
 
 		}
