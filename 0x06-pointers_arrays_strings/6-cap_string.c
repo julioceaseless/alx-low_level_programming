@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
+ * cap_string - converts letters to upper
+ * @str: string
+ * Return: pointer to converted string
  */
 char *cap_string(char *str)
 {
@@ -14,7 +14,8 @@ char *cap_string(char *str)
 		{
 			str[i] = toupper(str[i]);
 
-		}else if (str[i] == ' ')
+		}
+		else if (str[i] == ' ')
 		{
 			i++;
 
@@ -26,7 +27,8 @@ char *cap_string(char *str)
 
 			str[i] = toupper(str[i]);
 
-		}else if (str[i] == '\t')
+		}
+		else if (str[i] == '\t')
 		{
 			i++;
 
