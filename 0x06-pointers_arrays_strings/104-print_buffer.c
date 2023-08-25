@@ -24,16 +24,16 @@ void print_buffer(char *b, int size)
 			}
 			else
 			{
-				printf("  ");
+				printf("   ");
 			}
 			if (j + 1 < size)
 			{
 				printf("%02x ", (unsigned char)b[j + 1]);
 			}
 			else
-				printf("   ");
+				printf("  ");
 		}
-		printf(" ");
+		/* printf(" ");*/
 		for (j = i; j < i + 10 && j < size; j++)
 		{
 			if (isprint((unsigned char)b[j]))
