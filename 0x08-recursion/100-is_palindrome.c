@@ -1,34 +1,36 @@
 #include "main.h"
 /**
- * iterate_rev - iterates the string from forward
- * @s: pointer to string
- * Return: returns 1 if palindrome and 0 otherwise
+ * find_palindrome - helper function to find palindrome
+ * @str_start: pointer to the begining of string
+ * @str_end: pointer to the end of the string
+ * Return: 1 or 0
  */
-char iterate_rev(char *s)
-{
-	if (*s == '\0')
-		return (1);
-	iterate_rev(s + 1);
-	return (*s);
-}
 
-/**
- * is_palindrome - iterates the string from forward
- * @s: pointer to string
- * Return: returns 1 if palindrome and 0 otherwise
- */
-int is_palindrome(char *s)
+int find_palindrome(char *str_start, char *str_end)
 {
-	if (*s == '\0')
+	if (str_start >= str_end)
 	{
 		return (1);
 	}
-	if ((*s == iterate_rev(s)) && is_palindrome(s + 1))
-	{
-		return (1);
-	}
-	else
+
+	/* check if the first half of string equals half */
+	if (*str_start != *str_end)
 	{
 		return (0);
 	}
+
+	/* navigate the string front to end and end to front*/
+	return (find_palindrome(str_start + 1, str_end - 1));
+}
+
+
+/**
+ * is_palindrome - calls find_palindrome
+ * @s: pointer to string
+ * Return: 1 if palindrome and 0 otherwise
+ */
+int is_palindrome(char *s)
+{
+	/*pass the pointer to start of string and pointer to end*/
+	return (find_palindrome(s, s + strlen(s) - 1));
 }
