@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	long int product = 1;
+	int product = 1;
 	int i, n;
 
 	if (argc < 2 || argc > 3)
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 			n = strtol(argv[i], NULL, 10);
 			product *= n;
 		}
-		printf("%ld\n", product);
+		printf("%d\n", product);
 	}
 	return (0);
 }
