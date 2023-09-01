@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
 	int product = 1;
 	int i, n;
 
-	if (argc < 2 || argc > 3)
+	if (argc < 3)
 	{
-		printf("Error\n");
+		printf("Error");
 		return (1);
 	}
 	else
