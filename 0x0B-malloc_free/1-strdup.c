@@ -25,13 +25,17 @@ char *_strdup(char *str)
 {
 	char *str_copy;
 	int i;
-	int size = size_of_str(str);
+	int size_str = size_of_str(str);
 
-	str_copy = malloc(size * sizeof(char) + 1);
-
-	if (str == NULL)
+	if (str == NULL || size_str == 0)
 		return (NULL);
-	for (i = 0; i < size; i++)
+
+	str_copy = malloc(size_str * sizeof(char) + 1);
+
+	if (str_copy == NULL)
+		return (NULL);
+
+	for (i = 0; i < size_str; i++)
 	{
 		str_copy[i] = str[i];
 	}
