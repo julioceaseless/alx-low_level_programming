@@ -24,7 +24,7 @@ int str_len(char *str)
 char *str_concat(char *s1, char *s2)
 {
 	int len1, len2, i;
-	char *joined_str;
+	char *s3;
 
 	if (s2 == NULL)
 		s2 = "";
@@ -35,22 +35,22 @@ char *str_concat(char *s1, char *s2)
 	len1 = str_len(s1);
 	len2 = str_len(s2);
 
-	joined_str = (char *) malloc((len1 + len2 + 1) * sizeof(char));
+	s3 = (char *) malloc((len1 + len2 + 1) * sizeof(char));
 
-	if (joined_str == NULL)
+	if (s3 == NULL)
 		return (NULL);
 
 	for (i = 0; i < len1; i++)
 	{
-		joined_str[i] = s1[i];
+		s3[i] = s1[i];
 	}
 
 	for (i = 0; i < len2; i++)
 	{
-		joined_str[len1 + i] = s2[i];
+		s3[len1 + i] = s2[i];
 	}
 
-	joined_str[len1 + len2] = '\0';
+	s3[len1 + len2] = '\0';
 
-	return (joined_str);
+	return (s3);
 }
