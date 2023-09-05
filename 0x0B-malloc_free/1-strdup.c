@@ -27,10 +27,10 @@ char *_strdup(char *str)
 	int i;
 	int size_str = size_of_str(str);
 
-	if (str == NULL || size_str == 0)
+	if (str == NULL)
 		return (NULL);
 
-	str_copy = malloc(size_str * sizeof(char) + 1);
+	str_copy = malloc((size_str + 1) * sizeof(char));
 	
 	if (str_copy == NULL)
 		return (NULL);
