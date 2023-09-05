@@ -26,26 +26,27 @@ char *str_concat(char *s1, char *s2)
 	int len1, len2, i;
 	char *s3;
 
-	if (s2 == NULL)
-		s2 = "";
-
 	if (s1 == NULL)
 		s1 = "";
 
+	if (s2 == NULL)
+		s2 = "";
+
+	/* get length of strings */
 	len1 = str_len(s1);
 	len2 = str_len(s2);
-
+	/* printf("s1: %d, s2: %d\n", len1, len2);*/
 	s3 = (char *) malloc((len1 + len2 + 1) * sizeof(char));
 
 	if (s3 == NULL)
 		return (NULL);
 
-	for (i = 0; i < len1; i++)
+	for (i = 0; i <= len1; i++)
 	{
 		s3[i] = s1[i];
 	}
 
-	for (i = 0; i < len2; i++)
+	for (i = 0; i <= len2; i++)
 	{
 		s3[len1 + i] = s2[i];
 	}
