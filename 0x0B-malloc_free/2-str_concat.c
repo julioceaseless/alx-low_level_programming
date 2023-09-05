@@ -37,7 +37,7 @@ char *str_concat(char *s1, char *s2)
 
 	joined_str = (char *) malloc((len1 + len2 + 1) * sizeof(char));
 
-	if(joined_str == NULL)
+	if (joined_str == NULL)
 		return (NULL);
 
 	for (i = 0; i < len1; i++)
@@ -47,10 +47,10 @@ char *str_concat(char *s1, char *s2)
 
 	for (i = 0; i < len2; i++)
 	{
-		joined_str[i + len1] = s2[i];
+		joined_str[len1 + i] = s2[i];
 	}
 
-	joined_str[i + len1] = '\0';
+	joined_str[len1 + len2] = '\0';
 
 	return (joined_str);
 }
