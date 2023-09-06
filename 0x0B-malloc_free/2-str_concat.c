@@ -7,7 +7,7 @@
 
 int str_len(char *str)
 {
-	int len;
+	int len = 0;
 
 	while (str[len] != '\0')
 		len++;
@@ -23,7 +23,7 @@ int str_len(char *str)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len1, len2, i;
+	int len1 = 0, len2 = 0, i;
 	char *s3;
 
 	if (s1 == NULL)
