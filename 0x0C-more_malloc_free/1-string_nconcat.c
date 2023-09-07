@@ -6,12 +6,10 @@
  */
 unsigned int str_len(char *str)
 {
-	unsigned int i = 0;
+	unsigned int i;
 
-	while (str[i] != '\0')
-	{
-		i++;
-	}
+	for(i = 0; str[i] != '\0'; i++)
+		;
 	return (i);
 }
 /**
@@ -33,7 +31,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	if (n >= str_len(s2))
+	if (n > str_len(s2))
 	{
 		n = str_len(s2);
 	}
