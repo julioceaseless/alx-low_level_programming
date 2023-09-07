@@ -24,7 +24,7 @@ unsigned int str_len(char *str)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s = NULL;
-	unsigned int i, s1_len = 0;
+	unsigned int i, j, s1_len = 0;
 
 	s1_len = str_len(s1);
 
@@ -50,12 +50,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 
 	/* copy s2 */
-	for (i = 0; i < n; i++)
+	for (j = 0; j < n; j++)
 	{
-		s[s1_len + i] = s2[i];
+		s[i] = s2[j];
+		i++;
 	}
 
 	/* add null terminator */
-	s[s1_len + i] = '\0';
+	s[i] = '\0';
 	return (s);
 }
