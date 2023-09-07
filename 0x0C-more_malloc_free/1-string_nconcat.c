@@ -8,7 +8,7 @@ unsigned int str_len(char *str)
 {
 	unsigned int i;
 
-	for(i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		;
 	return (i);
 }
@@ -24,12 +24,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *s = NULL;
 	unsigned int i, j, s1_len = 0;
 
-	s1_len = str_len(s1);
-
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+
+	s1_len = str_len(s1);
 
 	if (n >= str_len(s2))
 	{
