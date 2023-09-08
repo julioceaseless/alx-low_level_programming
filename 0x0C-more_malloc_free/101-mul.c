@@ -2,7 +2,7 @@
 
 /* function prototypes */
 int str_len(char *s);
-void result_to_str(int *int_arr, char *char_arr, int size);
+char *result_to_str(int *int_arr, int size);
 char *mul(char *num1, char *num2);
 void _print(char *s);
 
@@ -26,19 +26,19 @@ int main(int argc, char **argv)
 	}
 	/* check if digits */
 	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			for (j = 0; argv[i][j] != '\0'; j++)
+			/*printf("index argv[%d][%d]: %c\n", i, j, argv[i][j]);*/
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 			{
-				/*printf("index argv[%d][%d]: %c\n", i, j, argv[i][j]);*/
-				if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
-				{
-					_print("Error");
-					_putchar('\n');
-					exit(98);
-				}
+				_print("Error");
+				_putchar('\n');
+				exit(98);
 			}
 		}
-	
+	}
+
 	num1 = argv[1];
 	num2 = argv[2];
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 	_putchar('\n');
 
 	free(result);
-	return(0);
+	return (0);
 }
 
 /**
@@ -61,11 +61,11 @@ int main(int argc, char **argv)
  */
 int str_len(char *s)
 {
-        int a;
+	int a;
 
-        for (a = 0; s[a] != '\0'; a++)
-                ;
-        return (a);
+	for (a = 0; s[a] != '\0'; a++)
+		;
+	return (a);
 }
 
 /**
@@ -76,12 +76,12 @@ int str_len(char *s)
  */
 char *result_to_str(int *int_arr, int size)
 {
-        int i, pos = 0;
+	int i, pos = 0;
 	char *char_arr = NULL;
 
-        char_arr = malloc((size + 1) * sizeof(char));
+	char_arr = malloc((size + 1) * sizeof(char));
 
-        if (char_arr == NULL)
+	if (char_arr == NULL)
 		return (NULL);
 	for (i = 0; i < size; i++)
 	{
@@ -97,47 +97,48 @@ char *result_to_str(int *int_arr, int size)
 
 /**
  * mul - multiplies large numbers
- * @num1: number 1
- * @num2: number 2
+ * @num1: first number
+ * @num2: second number
  * Return: string of result
  */
 char *mul(char *num1, char *num2)
 {
-        int len1 = 0, len2 = 0, mul = 0, sum = 0;
-        int *result = NULL;
-        char *result_str = NULL;
-        int i, j;
+	int len1 = 0, len2 = 0, mul = 0, sum = 0;
+	int *result = NULL;
+	char *result_str = NULL;
+	int i, j;
 
-        len1 = str_len(num1);
-        len2 = str_len(num2);
+	len1 = str_len(num1);
+	len2 = str_len(num2);
 
-        result = malloc(sizeof(int) * (len1 + len2));
+	result = malloc(sizeof(int) * (len1 + len2));
 
-        if (result == NULL)
-                return (NULL);
+	if (result == NULL)
+		return (NULL);
 
-        for (i = 0; i < (len1 + len2); i++)
-        {
-                result[i] = 0;
-        }
+	for (i = 0; i < (len1 + len2); i++)
+	{
+		result[i] = 0;
+	}
 
-        /* Perform multiplication */
-        for (i = len1 - 1; i >= 0; i--)
-        {
-                for (j = len2 - 1; j >= 0; j--)
-                {
-                        mul = (num1[i] - '0') * (num2[j] - '0');
-                        sum = mul + result[i + j + 1];
-                        result[i + j + 1] = sum % 10;
-                        result[i + j] += sum / 10;
-                }
-        }
+	/* Perform multiplication */
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			mul = (num1[i] - '0') * (num2[j] - '0');
+			sum = mul + result[i + j + 1];
+			result[i + j + 1] = sum % 10;
+			result[i + j] += sum / 10;
+		}
+	}
 
-        /* convert result to string */
-        result_str = result_to_str(result, (len1 + len2));
+	/* convert result to string */
+	result_str = result_to_str(result, (len1 + len2));
 
-        free(result);
-        return (result_str);
+	free(result);
+
+	return (result_str);
 }
 
 /**
@@ -147,6 +148,7 @@ char *mul(char *num1, char *num2)
 void _print(char *s)
 {
 	int i;
+
 	for (i = 0; i < str_len(s); i++)
 	{
 		_putchar(s[i]);
