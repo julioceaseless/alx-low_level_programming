@@ -115,12 +115,11 @@ char *mul(char *num1, char *num2)
 
 	if (result == NULL)
 		return (NULL);
-	/**
+
 	for (i = 0; i < (len1 + len2); i++)
 	{
 		result[i] = 0;
 	}
-	*/
 	/* Perform multiplication */
 	for (i = len1 - 1; i >= 0; i--)
 	{
