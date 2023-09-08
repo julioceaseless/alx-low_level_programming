@@ -120,7 +120,6 @@ char *mul(char *num1, char *num2)
 	{
 		result[i] = 0;
 	}
-
 	/* Perform multiplication */
 	for (i = len1 - 1; i >= 0; i--)
 	{
