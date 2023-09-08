@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	result = mul(num1, num2);
 
 	if (result == NULL)
-		return (NULL);
+		exit(98);
 
 	_print(result);
 	_putchar('\n');
