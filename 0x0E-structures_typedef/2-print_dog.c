@@ -2,7 +2,6 @@
 /**
  * print_dog - prints struct elements
  * @d: pointer to struct
- * Return: nothing!
  */
 void print_dog(struct dog *d)
 {
