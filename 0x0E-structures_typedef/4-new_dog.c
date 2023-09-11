@@ -40,7 +40,7 @@ char *_strdup(char *str)
 		str_copy[i] = str[i];
 	}
 
-	str_copy[i + 1] = '\0';
+	str_copy[size_str] = '\0';
 	return (str_copy);
 }
 
