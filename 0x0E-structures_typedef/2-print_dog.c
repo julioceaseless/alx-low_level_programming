@@ -1,4 +1,4 @@
-#include "dog"
+#include "dog.h"
 /**
  * print_dog - prints struct elements
  * @d: pointer to struct
