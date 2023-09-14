@@ -36,10 +36,11 @@ void print_all(const char * const format, ...)
 			default:
 				break; /* ignore other characters */
 		}
-		j++;
-		if (format[j] == 'c' || format[j] == 'i' ||
-			format[j] == 'f' || format[j] == 's')
+		/* add separator until the second last variable */
+		if (format[j + 1] != '\0' && (format[j] == 'c' || format[j] == 'i' ||
+			format[j] == 'f' || format[j] == 's'))
 			printf(", ");
+		j++;
 	}
 	printf("\n");
 	va_end(args);
