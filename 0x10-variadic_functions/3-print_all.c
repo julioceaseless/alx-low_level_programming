@@ -36,7 +36,7 @@ void print_all(const char * const format, ...)
 			default:
 				break; /* ignore other characters */
 		}
-		/* add separator until the second last variable */
+		/* add separator between legit outputs until the second last output */
 		if (format[j + 1] != '\0' && (format[j] == 'c' || format[j] == 'i' ||
 			format[j] == 'f' || format[j] == 's'))
 			printf(", ");
