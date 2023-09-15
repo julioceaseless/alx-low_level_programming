@@ -10,7 +10,8 @@ int main(int argc, char **argv)
 {
 	int bytes = 0;
 	int i;
-	int (*main_ptr)(int, char **) = NULL;
+	int (*ptr_to_main)(int, char **) = NULL;
+	unsigned char op_code;
 
 	/* check number of arguments */
 	if (argc != 2)
@@ -29,18 +30,22 @@ int main(int argc, char **argv)
 	}
 
 	/* pass address of main to function pointer */
-	main_ptr = &main;
-	printf("Address stored: %p\n", main_ptr);
+	ptr_to_main = main;
 
-	if (main_ptr != NULL)
+	if (ptr_to_main != NULL)
 	{
 		for (i = 0; i < bytes; i++)
 		{
-			printf("%02x", *(main_ptr + i));
+			op_code = *(unsigned char *)ptr_to_main;
+			printf("%.2x", op_code);
+
+			/* add space between opcodes */
+			if (i < (bytes - 1))
+				printf(" ");
+
+			ptr_to_main++;
 		}
 		printf("\n");
 	}
-
 	return (0);
-
 }
