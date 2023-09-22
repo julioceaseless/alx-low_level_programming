@@ -1,9 +1,10 @@
 #include <stdio.h>
+void before_main(void) __attribute__ ((constuctor));
+
 /**
  * before_main - prints message before the main function
  * Return: nothing
  */
-void before_main(void)__attribute__((constuctor));
 
 void before_main(void)
 {
