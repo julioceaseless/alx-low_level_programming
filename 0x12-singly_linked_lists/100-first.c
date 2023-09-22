@@ -1,9 +1,6 @@
 #include <stdio.h>
-/**
- * before_main - constructor directive for before_main()
- *
- */
-void before_main(void) __attribute__ ((constuctor));
+
+void __attribute__ ((constuctor)) before_main(void);
 
 /**
  * before_main - prints message before the main function
