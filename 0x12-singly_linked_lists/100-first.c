@@ -1,4 +1,8 @@
 #include <stdio.h>
+/**
+ * before_main - constructor directive for before_main()
+ *
+ */
 void before_main(void) __attribute__ ((constuctor));
 
 /**
