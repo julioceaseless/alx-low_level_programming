@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void __attribute__ ((constuctor)) before_main(void);
+void __attribute__ ((constructor)) before_main(void);
 
 /**
  * before_main - prints message before the main function
