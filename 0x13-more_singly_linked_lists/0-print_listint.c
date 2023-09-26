@@ -8,19 +8,15 @@
 size_t print_listint(const listint_t *h)
 {
 	size_t count = 0;
-	int n = 0;
-	const listint_t *temp;
 
 	if (h == NULL)
 		return (0);
-	temp = h;
 
 	/* traverse the linked list */
-	while (temp != 0)
+	while (h != 0)
 	{
-		n = temp->n;
-		printf("%d\n", n);
-		temp = temp->next;
+		printf("%d\n", h->n);
+		h = h->next;
 		count++;
 
 	}
