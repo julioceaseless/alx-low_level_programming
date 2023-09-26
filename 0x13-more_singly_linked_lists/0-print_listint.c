@@ -7,17 +7,18 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t count = 0;
+	size_t count = 0, n = 0;
 	const listint_t *temp;
 
 	if (h == NULL)
-		return (NULL);
+		return (0);
 	temp = h;
 
 	/* traverse the linked list */
 	while (temp != NULL)
 	{
-		printf("%d\n", temp->n);
+		n = temp->n;
+		printf("%u\n", n);
 		temp = temp->next;
 		count++;
 
