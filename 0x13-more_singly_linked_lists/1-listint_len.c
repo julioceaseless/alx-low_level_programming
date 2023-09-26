@@ -15,7 +15,7 @@ size_t listint_len(const listint_t *h)
 	/* traverse the linked list */
 	while (h != 0)
 	{
-		temp = temp->next;
+		h = h->next;
 		count++;
 
 	}
