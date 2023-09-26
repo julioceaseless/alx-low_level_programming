@@ -11,6 +11,8 @@ size_t print_listint(const listint_t *h)
 	const listint_t *temp;
 
 	temp = h;
+	if (temp == NULL)
+		return (NULL);
 	/* traverse the linked list */
 	while (temp != 0)
 	{
