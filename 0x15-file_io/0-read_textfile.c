@@ -9,7 +9,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fdescriptor = 0;
 	char buffer[1024];
-	ssize_t total_read = char_read = char_written = 0;
+	ssize_t total_read = 0, char_read = 0, char_written = 0;
 
 	if (filename == NULL)
 		return (0);
