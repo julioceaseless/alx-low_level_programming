@@ -1,25 +1,22 @@
 #include "main.h"
 /**
- *
- *
- *
+ * read_textfile - reads text from file and prints on the console
+ * @filename: name of the file
+ * @letters: number of letters to read
+ * Return: number of characters read;
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fdescriptor = 0;
 	char buffer[1024];
-	ssize_t total_read = 0;
-	ssize_t char_read;
-	ssize_t char_written = 0;
+	ssize_t total_read = char_read = char_written = 0;
 
 	if (filename == NULL)
 		return (0);
 
 	fdescriptor = open(filename, O_RDONLY);
 	if (fdescriptor == -1)
-	{
 		return (0);
-	}
 
 	while (letters > 0)
 	{
@@ -29,7 +26,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			close(fdescriptor);
 			return (0);
 		}
-
 		if (char_read == 0)
 			break;
 
@@ -40,8 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			close(fdescriptor);
 			return (0);
 		}
-
-		total_read +=char_read;
+		total_read += char_read;
 		letters -= char_read;
 	}
 	close(fdescriptor);
