@@ -73,6 +73,8 @@ int main(int argc, char **argv)
 	/* detect error when reading from file */
 	if (total_bytes < 0)
 	{
+		close(fd_from);
+		close(fd_to);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
 		exit(98);
 	}
