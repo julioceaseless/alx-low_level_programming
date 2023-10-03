@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 		open_error(98, "Error: Can't read from file", argv[1]);
 
 	/* open dest file */
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to < 0)
 		open_error(99, "Error: Can't write to", argv[2]);
 
