@@ -43,16 +43,16 @@ void close_error(int exit_code, char *message, int fd_value)
  */
 int main(int argc, char **argv)
 {
-	int fd_to, fd_from, bytes_read = 0, f_close = 0;
-	char *buffer;
+	int fd_to = 0, fd_from = 0, bytes_read = 0, f_close = 0;
+	char *buffer = NULL;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buffer = malloc(BUFFER_SIZE * sizeof(char));
 
+	buffer = malloc(BUFFER_SIZE * sizeof(char));
 	/* open source file */
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from < 0)
@@ -81,6 +81,7 @@ int main(int argc, char **argv)
 	f_close = close(fd_to);
 	if (f_close < 0)
 		close_error(100, "Error: Can't close", fd_to);
+
 	free(buffer);
 	return (0);
 }
