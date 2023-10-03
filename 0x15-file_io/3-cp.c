@@ -43,7 +43,7 @@ void close_error(int exit_code, char *message, int fd_value)
  */
 int main(int argc, char **argv)
 {
-	int fd_to = 0, fd_from = 0, bytes_read = 0, f_close = 0;
+	int fd_to = 0, fd_from = 0, bytes_read = 0, f_close = 0, total_bytes = 0;
 	char *buffer = NULL;
 
 	if (argc != 3)
@@ -64,14 +64,14 @@ int main(int argc, char **argv)
 		open_error(99, "Error: Can't write to", argv[2]);
 
 	/* read from source and copy to dest file */
-	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))))
+	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
+		total_bytes += bytes_read;
 		if (write(fd_to, buffer, bytes_read) != bytes_read)
 			open_error(99, "Error: Can't write to", argv[2]);
 	}
-
 	/* detect error when reading from file */
-	if (bytes_read < 0)
+	if (total_bytes < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
 		exit(98);
