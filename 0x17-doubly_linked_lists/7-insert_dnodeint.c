@@ -43,7 +43,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	newnode->prev = NULL;
 	newnode->next = NULL;
 	len = get_list_len(h);
-	if (idx >= len)
+	if (idx > len)
 	{	free(newnode);
 		return (NULL);
 	}
