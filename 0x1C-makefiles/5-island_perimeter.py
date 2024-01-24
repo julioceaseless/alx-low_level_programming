@@ -16,7 +16,7 @@ def island_perimeter(grid):
                 #    return per
 
                 # find island boundaries
-                if row == 0 or grid[row - 1][col] == 0 :
+                if row == 0 or grid[row - 1][col] == 0:
                     per += 1
                 if row == (len(grid) - 1) or grid[row + 1][col] == 0:
                     per += 1
