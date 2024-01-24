@@ -13,7 +13,7 @@ def island_perimeter(grid):
             if grid[row][col]:
                 # check if island
                 if row == 0 or row == 4 or col == 0 or col == 5:
-                    return f"this is not an island"
+                    return per
 
                 # find island boundaries
                 if grid[row - 1][col] == 0:
