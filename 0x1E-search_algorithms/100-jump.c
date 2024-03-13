@@ -11,39 +11,41 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
-	size_t jump_size, i;
-	size_t l = 0, r = size;
+	size_t lower, upper, i,  jump_size;
 
-	if (array == NULL)
-		return (-1);
+	jump_size = sqrt(size);
+	lower = 0;
+	upper = jump_size;
 
-	printf("Value checked array[%ld] = [%d]\n", l, array[l]);
-	if (array[l] == value)
-		return (l);
-	
-	jump_size = sqrt(size - 1);
+	/* check at index 0 */
+	printf("Value checked array[%ld] = [%d]\n", lower, array[lower]);
 
-	if (array[jump_size] > value)
+	/* find the block where the value could be */
+	while (value > array[upper])
 	{
-		r = jump_size - 1;
-		printf("Value found between indexes [%ld] and [%ld]\n", l, r);
-		for (i = l; i < r; i++)
+		/* adjust the lower and upper bounds to point to next block */
+		lower = upper;
+		upper += jump_size;
+
+		if (upper > size)
 		{
-			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-			if (array[i] == value)
-				return (i);
+			printf("Value checked array[%ld] = [%d]\n", upper, array[upper]);
+			return (-1);
 		}
+
+		printf("Value checked array[%ld] = [%d]\n", upper, array[upper]);
+
 	}
-	else
+
+	printf("Value checked array[%ld] = [%d]\n", lower, array[lower]);
+	printf("Value found between indexes [%ld] and [%ld]\n", lower, upper);
+
+	/* perform linear search within the block */
+	for (i = lower; i <= upper; i++)
 	{
-		l = jump_size + 1;
-		printf("Value found between indexes [%ld] and [%ld]\n", l, r);
-		for (i = l; i < r; i++)
-		{
-			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-			if (array[i] == value)
-				return (i);
-		}
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
 	}
 	return (-1);
 }
