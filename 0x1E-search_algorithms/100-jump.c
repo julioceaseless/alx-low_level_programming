@@ -32,12 +32,11 @@ int jump_search(int *array, size_t size, int value)
 			printf("Value checked array[%ld] = [%d]\n", upper, array[upper]);
 			return (-1);
 		}
-
-		printf("Value checked array[%ld] = [%d]\n", upper, array[upper]);
+		printf("Value checked array[%ld] = [%d]\n", lower, array[lower]);
 
 	}
 
-	printf("Value checked array[%ld] = [%d]\n", lower, array[lower]);
+	/* printf("Value checked array[%ld] = [%d]\n", lower, array[lower]);*/
 	printf("Value found between indexes [%ld] and [%ld]\n", lower, upper);
 
 	/* perform linear search within the block */
